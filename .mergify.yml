@@ -1,13 +1,8 @@
 pull_request_rules:
-  - name: Automatic merge during office hours
-    description: Merge when PR passes all branch protection during office hours
-    conditions:
-      - author=rrbugproof
-    actions:
-      merge:
   - name: Automatic merge
     description: Merge when PR passes all branch protection and has label automerge
     conditions:
-      - label = automerge
+      - author=rrbugproof
+      - "#approved-reviews-by >= 1"
     actions:
       merge:
